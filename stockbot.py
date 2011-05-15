@@ -10,7 +10,7 @@ NICK="Stocktellerbot"
 IDENT="Stockbot"
 REALNAME="Stockbot"
 OWNER="Pranav_rcmas"
-CHANNELINIT="#chennai-hackers"
+CHANNELINIT="#noobchannel"
 readbuffer=""
 s=socket.socket( )
 s.connect((HOST, PORT))
