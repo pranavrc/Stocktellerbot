@@ -40,14 +40,6 @@ while True:
       s.send ( 'QUIT\r\n' )
    if data.find ( 'hi Stocktellerbot' ) != -1:
       s.send ( 'PRIVMSG %s :%s\r\n' % (CHANNELINIT, 'Hiya' ))
-   ##if data.find ( 'hello botty' ) != -1:
-      ##s.send ( 'PRIVMSG #paul :I already said hi...\r\n' )
-   ##if data.find ( 'KICK' ) != -1:
-      ##s.send ( 'JOIN #paul\r\n' )
-   ##if data.find ( 'cheese' ) != -1:
-     ## s.send ( 'PRIVMSG #paul :WHERE!!!!!!\r\n' )
-   ##if data.find ( 'slaps botty' ) != -1:
-      ##s.send ( 'PRIVMSG #paul :This is the Trout Protection Agency. Please put the Trout Down and walk away with your hands in the air.\r\n' )
    if data.find ( 'Stock update pl0x' ) != -1:
       stockprice=ystockquote.get_price('GOOG')
       s.send("PRIVMSG %s :%s\r\n" % (CHANNELINIT, stockprice))
