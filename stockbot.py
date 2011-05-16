@@ -37,22 +37,24 @@ while True:
    print data
    if data.find ( 'PING' ) != -1:
       s.send ( 'PONG ' + data.split() [ 1 ] + '\r\n' )
-   if data.find ( 'Stocktellerbot quit' ) != -1:
+   if data.find ( 'Stockinator quit' ) != -1:
       s.send ( "PRIVMSG %s :%s\r\n" % (CHANNELINIT, 'Fine, bye'))
       s.send ( 'QUIT\r\n' )
-   if data.find ( 'hi Stocktellerbot' ) != -1:
+   if data.find ( 'hi Stockinator' ) != -1:
       s.send ( 'PRIVMSG %s :%s\r\n' % (CHANNELINIT, 'Hiya' ))
    ##if data.find ( 'stock update pl0x' ) != -1:
      ## s.send("PRIVMSG %s :%s\r\n" % (CHANNELINIT, "Which stock?"))
    if data.find("PRIVMSG") != -1:
-      parser.parsemsg(data)
-      data=data.rstrip() #remove trailing 'rn'
-      data=data.split()
-      if data[3].find(":") != -1:
-         data[3]=data[3].strip(':') 
-         stockprice=ystockquote.get_price(data[3])
-         print data[3]
-         s.send("PRIVMSG %s :%s\r\n" % (CHANNELINIT, stockprice))
+      if data.find("Stockinator") != -1:
+         parser.parsemsg(data)
+         data=data.rstrip() #remove trailing 'rn'
+         data=data.split()
+         usernick=data[0].split("!", 1)
+         usernick=usernick[0].strip(':')
+         if data[3].find(":") != -1:
+            data[3]=data[3].strip(':') 
+            stockprice=ystockquote.get_price(data[3])
+            s.send("PRIVMSG %s :%s\r\n" % (CHANNELINIT, usernick+": " + data[3] + " is " + stockprice))
    
 
 while 1:
