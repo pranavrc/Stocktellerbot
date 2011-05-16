@@ -20,7 +20,7 @@ s.send("USER %s %s bla :%s\r\n" % (IDENT, HOST, REALNAME))
 s.send("JOIN :%s\r\n" % CHANNELINIT)
 
 
-##s.send("PRIVMSG %s :%s\r\n" % (CHAN, "..."))
+s.send("PRIVMSG %s :%s\r\n" % (CHANNELINIT, "Hi! Type '<nameofshare> Stockinator' to get stock price on <nameofshare>. I will return 0.00 if <nameofshare> is invalid and not in my database."))
 
 ##sleep(10);
 
@@ -37,11 +37,11 @@ while True:
    print data
    if data.find ( 'PING' ) != -1:
       s.send ( 'PONG ' + data.split() [ 1 ] + '\r\n' )
-   if data.find ( 'Stockinator quit' ) != -1:
+   if data.find ( 'quit Stockinator' ) != -1:
       s.send ( "PRIVMSG %s :%s\r\n" % (CHANNELINIT, 'Fine, bye'))
       s.send ( 'QUIT\r\n' )
    if data.find ( 'hi Stockinator' ) != -1:
-      s.send ( 'PRIVMSG %s :%s\r\n' % (CHANNELINIT, 'Hiya' ))
+      s.send ( 'PRIVMSG %s :%s\r\n' % (CHANNELINIT, 'Hiya, and btw, "HI" is also a stock :P' ))
    ##if data.find ( 'stock update pl0x' ) != -1:
      ## s.send("PRIVMSG %s :%s\r\n" % (CHANNELINIT, "Which stock?"))
    if data.find("PRIVMSG") != -1:
