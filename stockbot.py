@@ -7,9 +7,9 @@ import ystockquote
 import parser
 HOST="irc.freenode.net"
 PORT=6667
-NICK="Stocktellerbot"
-IDENT="Stockbot"
-REALNAME="Stockbot"
+NICK="Stockinator"
+IDENT="Stockinator"
+REALNAME="Stock1337ator"
 OWNER="Pranav_rcmas"
 CHANNELINIT="#noobchannel"
 readbuffer=""
