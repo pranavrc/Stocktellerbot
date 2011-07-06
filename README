@@ -2,9 +2,6 @@ Simple python IRC bot that returns stock prices using ystockquote API, by Pranav
 
 TODO:
 
-##Add extra functionality for personal pings.
-##Should be able to detect the stock name being asked for, and reply appropriately.
-
 Clean up code, increase modularity.
 
 CREDITS:
